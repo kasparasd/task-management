@@ -25,7 +25,7 @@ export class Todo {
         for (const column of this.columns){
             HTML += `
                 <div>
-                    <h4>${column}</h4>
+                    <h2>${column}</h2>
                     <ul>
                     <li></li>
                     <li></li>
