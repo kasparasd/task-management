@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/todo.css">
     <link rel="stylesheet" href="./css/aside.css">
+    <link rel="stylesheet" href="./css/form.css">
 </head>
 
 <body>
@@ -34,7 +35,32 @@
                     <button type="button" class="fa fa-times"></button>
                 </header>
                 <div class="aside-content">
-                    COntent
+                    <form id="task-form-id" class="form">
+                        <div class="form-row">
+                            <label class="label" for="title">Title</label>
+                            <input id= "title" class="input" type="text" name="title" required>
+                        </div>
+
+                        <div class="form-row">
+                            <label class="label" for="desc">Description</label>
+                            <textarea id="desc" class="textarea" type="text" name="description"></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <label class="label" for="deadline">Deadline</label>
+                            <input id="deadline" class="input" type="text" name="deadline">
+                        </div>
+
+                        <div class="form-row">
+                            <label class="label" for="tags">Tags</label>
+                            <input id="tags" class="input" type="text" name="tags">
+                        </div>
+
+                        <div class="form-row">
+                            <button class="btn" type="submit">Create task</button>
+                        </div>
+
+                    </form>
                 </div>
             </div>
         </aside>

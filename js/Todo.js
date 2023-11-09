@@ -17,6 +17,7 @@ export class Todo {
         }
 
         this.render();
+        this.loadInitialData();
     }
 
     updateDOMelement() {
@@ -66,13 +67,18 @@ export class Todo {
     }
 
     addTask(task) {
+        this.renderTask(task)
+        localStorage.setItem('46g-tasks-list', JSON.stringify(this.tasks));
+    }
+
+
+    renderTask(task) {
         const taskID = ++this.lastUsedtaskId;
         this.tasks.push({
             ...task,
             isDeleted: false,
         });
         
-
         // this.columnsDOM[task.columnIndex].innerHTML += HTML;
         this.columnsDOM[task.columnIndex].insertAdjacentHTML('beforeend', this.taskCardHTML(taskID, task));
 
@@ -83,5 +89,14 @@ export class Todo {
             this.tasks[taskID - 1].isDeleted = true;
             taskDOM.remove();
         });
+    }
+
+    loadInitialData(){
+        const localData = localStorage.getItem('46g-tasks-list');
+        const data = JSON.parse(localData);
+        
+        for (const task of data){
+            this.addTask(task);
+        }
     }
 }
