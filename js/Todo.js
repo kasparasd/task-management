@@ -45,12 +45,7 @@ export class Todo {
         this.columnsDOM = this.DOM.querySelectorAll('.task-list');
     }
 
-    addTask(task) {
-        this.tasks.push({
-            ...task,
-            isDeleted: false,
-        });
-        const taskID = ++this.lastUsedtaskId;
+    taskCardHTML(taskID, task){
         let tagsHTML = '';
 
         for (const tag of task.tags) {
@@ -67,9 +62,19 @@ export class Todo {
                 <div class="task-tags">${tagsHTML}</div>
                 <div class="task-deadline">${task.deadline}</div>
             </li>`;
+            return HTML
+    }
+
+    addTask(task) {
+        const taskID = ++this.lastUsedtaskId;
+        this.tasks.push({
+            ...task,
+            isDeleted: false,
+        });
+        
 
         // this.columnsDOM[task.columnIndex].innerHTML += HTML;
-        this.columnsDOM[task.columnIndex].insertAdjacentHTML('beforeend', HTML);
+        this.columnsDOM[task.columnIndex].insertAdjacentHTML('beforeend', this.taskCardHTML(taskID, task));
 
         const taskDOM = document.getElementById(`task_${taskID}`);
         const deleteButtonDOM = taskDOM.querySelector('.fa-trash');

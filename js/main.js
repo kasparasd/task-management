@@ -2,6 +2,34 @@ import { Todo } from "./Todo.js";
 
 const kanban = new Todo('#kanban',['Back log','Todo', 'In progress', 'Done']);
 
+const addTaskBtnDOM = document.getElementById('add-task');
+const asideDOM = document.getElementById('aside');
+const asideBackgroundDOM = asideDOM.querySelector('.aside-bg')
+const asideCloseBtnDOM = asideDOM.querySelector('.aside-header button')
+
+if(addTaskBtnDOM && asideDOM) {
+    addTaskBtnDOM.addEventListener('click', ()=>{
+        asideDOM.classList.add('show');
+    })
+    
+    asideBackgroundDOM.addEventListener('click', ()=>{
+        asideDOM.classList.remove('show')
+    })
+
+    asideCloseBtnDOM.addEventListener('click', ()=>{
+        asideDOM.classList.remove('show')
+    })
+    
+    window.addEventListener('keyup', (event)=>{
+        if(event.key === 'Escape'){
+            asideDOM.classList.remove('show')
+        }
+        if(event.key === '+'){
+            asideDOM.classList.add('show')
+        }
+    })
+}
+
 kanban.addTask({
     columnIndex: 1,
     title: 'Pirmos uzduoties antraste',
