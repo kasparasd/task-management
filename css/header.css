@@ -1,17 +1,18 @@
 .main-header {
     display: flex;
     justify-content: space-between;
-    padding: 20px 40px;
+    padding: 1rem;
     box-shadow: 0 4px 8px #0003;
     position: sticky;
     top: 0;
     left: 0;
     right: 0;
     background-color: white;
-    z-index: 100;
+    z-index: 1;
 }
 .main-header > .logo {
-    
+    font-size: 2rem;
+    line-height: 1em;
 }
 .main-header > .btn {
     
