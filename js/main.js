@@ -7,7 +7,7 @@ const addTaskBtnDOM = document.getElementById('add-task');
 const asideDOM = document.getElementById('aside');
 const asideBackgroundDOM = asideDOM.querySelector('.aside-bg')
 const asideCloseBtnDOM = asideDOM.querySelector('.aside-header button')
-asideDOM.classList.add('show');
+
 
 if(addTaskBtnDOM && asideDOM) {
     addTaskBtnDOM.addEventListener('click', ()=>{
