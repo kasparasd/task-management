@@ -95,8 +95,10 @@ export class Todo {
         const localData = localStorage.getItem('46g-tasks-list');
         const data = JSON.parse(localData);
         
-        for (const task of data){
-            this.addTask(task);
-        }
+        if (data) {
+            for (const task of data) {
+              this.addTask(task);
+            }
+          }
     }
 }
